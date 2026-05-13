@@ -1,10 +1,13 @@
 import asyncio
 import logging
+import os
 from aiogram import Bot, Dispatcher
 from bot.config import BOT_TOKEN
 from bot.database import init_db
 
 from bot.handlers import start, search, selection, used, verification
+
+os.makedirs("logs", exist_ok=True)
 
 logging.basicConfig(
     level=logging.INFO,
