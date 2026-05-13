@@ -5,7 +5,9 @@ from typing import Optional
 from datetime import datetime
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DB_PATH = BASE_DIR / "data" / "fishing_gear.db"
+DATA_DIR = BASE_DIR / "data"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+DB_PATH = DATA_DIR / "fishing_gear.db"
 
 
 def get_db() -> sqlite3.Connection:
