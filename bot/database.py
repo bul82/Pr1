@@ -26,6 +26,7 @@ def init_db():
             name TEXT NOT NULL,
             category TEXT NOT NULL,
             description TEXT,
+            price TEXT,
             characteristics TEXT,
             verified INTEGER DEFAULT 0
         )

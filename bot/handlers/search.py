@@ -1,7 +1,7 @@
 from aiogram import Router, F
 from aiogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton, Message
 from aiogram.filters import Command
-from bot.keyboards import back_to_menu_kb, categories_kb, gear_list_kb, prices_kb, analogues_kb
+from bot.keyboards import back_to_menu_kb, categories_kb, gear_list_kb, prices_kb, analogues_kb, main_menu_kb
 from bot.database import (
     get_gear_by_category, get_gear_by_id, search_gear, get_all_gear,
     get_prices_for_gear, get_cheapest_price, get_analogues, add_shop, update_shop_verification
