@@ -20,6 +20,7 @@ def init_db():
     conn = get_db()
     cursor = conn.cursor()
 
+    # Create gear table
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS gear (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -31,6 +32,12 @@ def init_db():
             verified INTEGER DEFAULT 0
         )
     """)
+
+    # Add price column if it doesn't exist (for existing databases)
+    try:
+        cursor.execute("ALTER TABLE gear ADD COLUMN price TEXT")
+    except sqlite3.OperationalError:
+        pass
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS shops (
