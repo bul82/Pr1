@@ -25,7 +25,7 @@ def categories_kb() -> InlineKeyboardMarkup:
 
 def gear_list_kb(gear_list: list, prefix: str) -> InlineKeyboardMarkup:
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text=f"{item['name']} — {item.get('price', 'N/A')}₽", callback_data=f"{prefix}_{item['id']}")]
+        [InlineKeyboardButton(text=f"{item['name']} — {item['price'] if 'price' in item else 'N/A'}₽", callback_data=f"{prefix}_{item['id']}")]
         for item in gear_list
     ])
     keyboard.inline_keyboard.append([InlineKeyboardButton(text="◀️ Назад", callback_data="back_to_menu")])
